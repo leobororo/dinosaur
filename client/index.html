@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Dinosaur</title>
+    <link rel="stylesheet" href="lib/css/angular-material.min.css">
+    <link rel="stylesheet" href="lib/css/app.css"/>
+  </head>
+  <body ng-app="dinosaur" layout="column" ng-controller="UserController as ul">
+      <md-toolbar layout="row">
+        <md-button ng-click="ul.toggleList();" hide-gt-sm aria-label="Show user list">
+          <md-icon md-svg-src="img/menu-rounded-solid.svg">
+          </md-icon>
+        </md-button>
+        <h2>Dinosaur</h2>
+      </md-toolbar>
+
+      <div class="container" layout="row" flex>
+
+        <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" class="lightblue md-whiteframe-8dp">
+          <md-list ng-click="ul.toggleList();">
+            <md-list-item ng-repeat="u in ul.users">
+              <md-button ng-click="ul.selectUser(u)">
+                <md-icon md-svg-src="{{u.avatar}}" class="avatar">
+                </md-icon>
+                {{u.name}}
+              </md-button>
+            </md-list-item>
+          </md-list>
+        </md-sidenav>
+        <md-content id="content" class="lightgreen" flex>
+          <md-icon md-svg-src="{{ul.selected.avatar}}" class="avatar">
+          </md-icon>
+          <h2>{{ul.selected.name}}</h2>
+          {{ul.selected.content}}
+        </md-content>
+      </div>
+
+      <script src="lib/angular/angular.js"></script>
+      <script src="lib/angular/angular-animate.js"></script>
+      <script src="lib/angular/angular-aria.js"></script>
+      <script src="lib/angular/angular-messages.js"></script>
+      <script src="lib/angular/angular-material.min.js"></script>
+      <script src="lib/js/Users.js"></script>
+      <script src="lib/js/UserService.js"></script>
+      <script src="lib/js/UserController.js"></script>
+
+      <script type="text/javascript">
+        angular.module("dinosaur", ["ngMaterial", "users"]);
+        angular.module("dinosaur").controller("cadastroCtrl", function ($scope) {
+          $scope.message = "message";
+        });
+        angular.module("dinosaur").run(function() {
+          console.log("Dinosaur is ready!");
+        });
+      </script>
+  </body>
+</html>

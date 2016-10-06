@@ -1,0 +1,23 @@
+{
+  "name": "dinosaur",
+  "description": "Dinosaur APP",
+  "main": "index.js",
+  "authors": [
+    "Leandro Bororo"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+      "angular": "1.5.8",
+      "angular-material":"latest",
+      "bootstrap": "3.3.7"
+    }
+}
